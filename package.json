@@ -1,0 +1,47 @@
+{
+  "name": "cy-bdd-tests",
+  "version": "1.0.0",
+  "description": "Cypress with Cucumber BDD",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "prereport": "npm run delete:reports",
+    "cy:run-reports": "npm run delete:reports && npm run cy:run && npm run junit:merge && npm run mochawesome:merge",
+    "cy:tags": "cypress-tags run",
+    "delete:reports": "rmdir /S /Q cypress\\results",
+    "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && marge mochawesome.json",
+    "junit:merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
+    "npm run ": "cypress run --env updateSnapshots=true",
+    "test:invalidLogin": "cypress run -e TAGS=\"@invalidLogin\"",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:electron": "cypress run --browser electron",
+    "cy:run:edge": "cypress run --browser edge",
+    "cy:run-dashboard": "cypress run --record --key 73c56b6c-a71a-4d40-abc6-05a8378d1746",
+    "start-jenkins-server": "java -jar jenkins.war -httpPort=8080 --enable-future-java"
+  },
+  "keywords": [
+    "Cypress",
+    "BDD",
+    "Cucumber",
+    "Snapshots",
+    "Fixtures",
+    "Commands"
+  ],
+  "author": "Peter",
+  "license": "ISC",
+  "dependencies": {
+    "cypress-cucumber-preprocessor": "^2.5.5",
+    "cypress-image-snapshot": "^3.1.1",
+    "prettier": "^2.1.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
+  "devDependencies": {
+    "cypress": "^5.4.0",
+    "cypress-multi-reporters": "^1.4.0",
+    "mocha-junit-reporter": "^2.0.0"
+  }
+}

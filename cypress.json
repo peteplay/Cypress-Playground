@@ -1,0 +1,21 @@
+{
+	"watchForFilesChanges": false,
+	"chromeWebSecurity": false,
+	"viewportWidth": 1920,
+	"viewportHeight": 1080,
+	"waitForAnimation": true,
+	"animationDistanceThreshold": 20,
+	"video": true,
+	"reporter": "cypress-multi-reporters",
+	  "reporterOptions": {
+		"configFile": "reporter-config.json"
+	},
+	"defaultCommandTimeout": 6000,
+	"execTimeout": 60000,
+	"pageLoadTimeout": 60000,
+	"requestTimeout": 15000,
+	"responseTimeout": 15000,
+	"failOnStatusCode": false,
+	"ignoreTestFiles": ["*.js", "*.md"],
+	"projectId": "5gzc7m"
+}
